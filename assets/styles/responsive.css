@@ -1,0 +1,15 @@
+@media screen and (max-width: 767px){
+    .sidebar{
+        min-width: 91px !important;
+    }
+    .menu-item__link{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    
+    }
+    .collapse{
+        display: none !important;
+    }
+}
