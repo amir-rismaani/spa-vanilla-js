@@ -1,0 +1,138 @@
+@import url("./assets/styles/fonts.css");
+
+/* Reset
+=========*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* General
+===========*/
+:root {
+  --color-primary: #6d28d9;
+  --color-secondary: #ede9fa;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #7c7c7c;
+  --color-red: #e21111;
+  --color-bg: #f6f6f6;
+  --spacing: 0.1rem;
+  --transition: all 0.3s linear;
+}
+
+html {
+  direction: rtl;
+  font-size: 62.5%;
+}
+
+body,
+* {
+  font-family: vazir;
+  font-size: 1.6rem;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar{
+    background-color: var(--color-primary);
+    min-width: 195px;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease;
+}
+
+.sidebar--minimal{
+    min-width: 91px;
+}
+
+.sidebar--minimal .menu-item__link{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+}
+
+.sidebar__menu{
+    flex: 2;
+    align-self: flex-start;
+    padding-top: 3rem;
+    width: 100%;
+}
+
+.menu-item{
+    cursor: pointer;
+    padding: 1rem;
+    caret-color: transparent;
+}
+
+.menu-item:hover, .menu-item.active{
+    background-color: var(--color-bg);
+    border-radius: 5px;
+}
+
+.menu-item:hover .menu-item__link{
+    color: var(--color-primary);
+}
+
+.menu-item__link, a{
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.menu-item__link{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.menu-item__icon{
+    /* margin-left: 1.2rem;
+    width: 20px; */
+}
+.menu-item__icon i{
+    font-size: 2rem;
+}
+
+.sidebar__logo--gray{
+    position: relative;
+}
+
+.sidebar__logo--gray img{
+    opacity: .3;
+}
+
+.collapse{
+    color: var(--color-white);
+    background-color: var(--color-black);
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    position: absolute;
+    /* right: 180%; */
+    bottom: 0;
+    cursor: pointer;
+    caret-color: transparent;
+}
+
+.collapsed{
+    transform: rotate(-180deg);
+}
+
+.main{
+    background-color: var(--color-bg);
+    flex: 6;
+}
