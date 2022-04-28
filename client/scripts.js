@@ -19,9 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = event.target;
     if (target.matches("[data-link]")) {
       event.preventDefault();
+      const menuItems = document.querySelectorAll(".menu-item");
+      menuItems.forEach((menuItem) => menuItem.classList.remove("active"));
       navigate(event.target.dataset.link);
+      target.parentNode.classList.add("active");
+    }
+    if (
+      target.matches(".menu-item__title") ||
+      target.matches(".menu-item__icon")
+    ) {
+      event.preventDefault();
+      target.parentNode.click();
     }
   });
+  const currentMenu = document.querySelector(
+    `a[data-link='${window.location.pathname}']`
+  );
+  if (currentMenu) currentMenu.parentNode.classList.add("active");
   router();
 });
 
@@ -46,7 +60,7 @@ function router() {
   let match = mappedRoutes.find((route) => route.isMatch);
   if (!match)
     match = {
-      route: { path: "/404", view: () => NotFound },
+      route: { path: "/404", view: NotFound },
       isMatch: true,
     };
 
